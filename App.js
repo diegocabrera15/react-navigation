@@ -20,13 +20,6 @@ const HomeScreen = ({ navigation }) => {
 };
 HomeScreen.navigationOptions = { 
   title: "Home Screen",
-  headerStyle: {
-    backgroundColor: '#ffeecc'
-  },
-  headerTintColor: '#222',
-  headerTitleStyle: {
-    fontWeight: '900'
-  }
 };
 
 const DetailScreen = ({ navigation }) => {
@@ -42,7 +35,6 @@ const DetailScreen = ({ navigation }) => {
 DetailScreen.navigationOptions = ({ navigation }) => {
   return {
     title: navigation.getParam("title", "Cargando"),
-    headerTintColor: '#5e5',
   };
 };
 
@@ -54,8 +46,18 @@ const AppNavigator = createStackNavigator(
     Detail: {
       screen: DetailScreen,
     },
-  },
-  { initialRouteName: "Home" }
+  },{ 
+      initialRouteName: "Home",
+      defaultNavigationOptions: {
+        headerStyle: {
+          backgroundColor: '#fec'
+        },
+        headerTintColor: '#555',
+        // headerTitleStyle: {
+        //   fontWeight: '900'
+        // }
+      }
+    }
 );
 
 export default createAppContainer(AppNavigator);
