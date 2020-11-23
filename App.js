@@ -20,6 +20,9 @@ const HomeScreen = ({ navigation }) => {
 };
 HomeScreen.navigationOptions = { 
   title: "Home Screen",
+  headerStyle: {
+    backgroundColor: '#f00'
+  },
 };
 
 const DetailScreen = ({ navigation }) => {
@@ -32,9 +35,12 @@ const DetailScreen = ({ navigation }) => {
     </View>
   );
 };
-DetailScreen.navigationOptions = ({ navigation }) => {
+DetailScreen.navigationOptions = ({ navigation, navigationOptions }) => {
   return {
     title: navigation.getParam("title", "Cargando"),
+    headerStyle: {
+      backgroundColor: navigationOptions.headerStyle.backgroundColor
+    },
   };
 };
 
