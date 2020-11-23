@@ -11,7 +11,7 @@ const HomeScreen = ({ navigation }) => {
       <Button
         title="Go Detail"
         onPress={() =>
-          navigation.navigate("Detail", { title: 'User 1', caddy: "Caddy", userId: 2 })
+          navigation.navigate("Detail", { caddy: "Caddy", userId: 2 })
         }
       />
       <StatusBar style="auto" />
@@ -25,7 +25,7 @@ const DetailScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text>Sandrica {caddy}</Text>
-      <Button title="Back" onPress={() => navigation.goBack()} />
+      <Button title="Back" onPress={() => navigation.setParams({title: 'User 2'})} />
       <StatusBar style="auto" />
     </View>
   );
