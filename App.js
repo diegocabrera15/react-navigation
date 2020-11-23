@@ -8,14 +8,20 @@ const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text>Caddys!</Text>
-      <Button title="Go Detail" onPress={() => navigation.navigate("Detail", {caddy: 'Caddy', userId: 2})} />
+      <Button
+        title="Go Detail"
+        onPress={() =>
+          navigation.navigate("Detail", { title: 'User 1', caddy: "Caddy", userId: 2 })
+        }
+      />
       <StatusBar style="auto" />
     </View>
   );
 };
+HomeScreen.navigationOptions = { title: "Home Screen" };
 
 const DetailScreen = ({ navigation }) => {
-  const caddy = navigation.getParam('caddy', 'default value')
+  const caddy = navigation.getParam("caddy", "default value");
   return (
     <View style={styles.container}>
       <Text>Sandrica {caddy}</Text>
@@ -24,6 +30,12 @@ const DetailScreen = ({ navigation }) => {
     </View>
   );
 };
+DetailScreen.navigationOptions = ({ navigation }) => {
+  return {
+    title: navigation.getParam("title", "Cargando"),
+  };
+};
+
 const AppNavigator = createStackNavigator(
   {
     Home: {
