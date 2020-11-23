@@ -4,6 +4,8 @@ import { Button, StyleSheet, Text, View } from "react-native";
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 
+const Logo = () => <Text>Caddy mia</Text>
+
 const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
@@ -19,7 +21,7 @@ const HomeScreen = ({ navigation }) => {
   );
 };
 HomeScreen.navigationOptions = { 
-  title: "Home Screen",
+  headerTitle: <Logo />,
   headerStyle: {
     backgroundColor: '#f00'
   },
