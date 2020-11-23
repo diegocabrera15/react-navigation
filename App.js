@@ -8,16 +8,17 @@ const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text>Caddys!</Text>
-      <Button title="Go Detail" onPress={() => navigation.push("Detail")} />
+      <Button title="Go Detail" onPress={() => navigation.navigate("Detail", {caddy: 'Caddy', userId: 2})} />
       <StatusBar style="auto" />
     </View>
   );
 };
 
 const DetailScreen = ({ navigation }) => {
+  const caddy = navigation.getParam('caddy', 'default value')
   return (
     <View style={styles.container}>
-      <Text>Sandrica</Text>
+      <Text>Sandrica {caddy}</Text>
       <Button title="Back" onPress={() => navigation.goBack()} />
       <StatusBar style="auto" />
     </View>
